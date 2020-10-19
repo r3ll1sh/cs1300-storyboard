@@ -1,14 +1,248 @@
-<!doctype html>
+<html lang="en">
+<head>
+  <title>Redesign</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <!-- TODO: add additional links here! e.g. fonts, icons, more stylesheets, etc. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
 
-<html>
-  <head>
-    <title>INSERT TITLE HERE!</title>
-    <link rel="stylesheet" href="index.css">
-    <!-- TODO: add additional links here! e.g. fonts, icons, more stylesheets, etc. -->
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-  </head>
+<body>
+  <div class="container">
+    <br>
+    <h1>Redesign Project</h1>
+    <hr>
 
-  <body>
-    <!-- TODO: put your HTML code here! -->
-  </body>
-</html>
+    <h3>Introduction</h3>
+
+    <p>For my redesign project, I chose to focus on Rhode Island’s
+       <a href="https://dltweb.dlt.ri.gov/UIClaims2013/intro/index.aspx?AC=yes">unemployment insurance portal</a>,
+      known as the “internet claims system”. This system is used by thousands of Rhode Islanders to
+      claim essential unemployment benefits, and has seen increasing use since the COVID-19 pandemic
+      as many continue to struggle without work. <br><br>
+      Like many state unemployment portals,
+      this system is outdated and poorly maintained, even using
+      <a href="https://www.theverge.com/2020/4/14/21219561/coronavirus-pandemic-unemployment-systems-cobol-legacy-software-infrastructure">backend technology from the 1950s</a> to process claims.
+      However, we will be looking at the frontend of the system, namely the form that Rhode Islanders need to fill out to claim benifits.
+
+      <br><br>It is essential to vulnerable Rhode Islanders that this portal function seamlessly.
+      However, there are a number of glaring issues with the form pages, including:</p>
+
+      <ul>
+        <li>Use of ASP.NET Web Forms, which has been <a href="https://dotnet.microsoft.com/apps/aspnet/web-forms">replaced</a> by newer standards</li>
+        <li>Poor scaling, resulting in difficulty completing the form on some devices</li>
+        <li>No privacy when entering SSN and other sensitive details</li>
+        <li>Outdated browser compatibility, recommending use of IE 5.0 or Firefox 2.0</li>
+        <li>Generally poor visual design language</li>
+      </ul>
+      <hr>
+      <figure class="figure">
+        <img src="bad-scaling.png" class="figure-img img-fluid rounded" alt="an example of poor scaling when viewed from an iphone XR">
+        <figcaption class="figure-caption">An example of poor scaling when viewed from an iphone XR.</figcaption>
+      </figure>
+      <hr>
+      <figure class="figure">
+        <img src="bad-scaling-2.png" class="figure-img img-fluid rounded" alt="An example of poor scaling when viewed on a large monitor with 250% scaling (Windows)">
+        <figcaption class="figure-caption">An example of poor scaling when viewed on a large monitor with 250% scaling (Windows standard).</figcaption>
+      </figure>
+      <hr>
+
+      <p>I also identified the following accessibility issues:</p>
+
+      <ul>
+        <li>Low contrast, including blue-on-blue text, which is difficult to read for some people</li>
+        <li>No fieldsets for questions, making it difficult for screen readers to access the forms</li>
+        <li>Use of images to denote asterisks, with no alt-text</li>
+        <li>No page regions or headings</li>
+        <li>No language header</li>
+      </ul>
+      <hr>
+      <figure class="figure">
+        <img src="bad-contrast.png" class="figure-img img-fluid rounded" alt=">An example of poor contrast">
+        <figcaption class="figure-caption">An example of poor contrast, with blue-on-blue text, and the link being the same color as the text.</figcaption>
+      </figure>
+
+      <hr>
+
+      <p>When envisioning a redesigned unemployment portal, I came up with a list
+      of objectives:</p>
+
+      <ul>
+        <li> <b>Scalable</b> for use on any device</li>
+        <li> <b>Clean</b> and free of visual clutter and confusing design</li>
+        <li> <b>Modern</b>, making use of new web technologies</li>
+        <li> <b>Accessible</b> to users of a screen reader or translation software</li>
+      </ul>
+
+      <p>As part of achieving these objectives, I decided to use Boostrap, a popular open-source toolkit for building
+        responsive websites. Bootstrap provides ready-made styling for common page
+        elements, as well as automatic scaling. Bootstrap's modern style should be familiar to most
+        internet users:</p>
+        <div class="container-sm">
+
+
+          <div class="card">
+            <div class="card-body">
+
+
+
+              <div class="panel panel-default">
+
+              </div>
+
+
+
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+
+
+              <br>
+
+              <form>
+                <div class="form-group">
+                  <label>Email address</label>
+                  <input type="email" class="form-control" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control"  placeholder="Password">
+                  <small class="form-text text-muted">You better hope we don't have a data breach</small>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" value="option1" checked>
+                  <label class="form-check-label" >
+                    This...
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios"value="option2">
+                  <label class="form-check-label">
+                    Or this?
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" >
+                  <label class="form-check-label">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Click me!</button>
+                <button type="submit" class="btn btn-danger">Scary Button</button>
+                <button type="submit" class="btn btn-info">Less Scary Button</button>
+                <button type="submit" class="btn btn-primary btn-xl">A Large Button</button>
+              </form>
+
+
+
+              <h3 class="pt-3 pb-1">Alerts</h3>
+
+              <div class="alert alert-success" role="alert">
+                <strong>You did it!</strong> Who would've thought?
+              </div>
+              <div class="alert alert-info" role="alert">
+                <strong>Heads up!</strong> You might want to know this.
+              </div>
+              <div class="alert alert-warning" role="alert">
+                <strong>Warning!</strong> You could ignore this, but you probably shouldn't.
+              </div>
+              <div class="alert alert-danger" role="alert">
+                <strong>You goofed.</strong> Don't do that again.
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+          <hr>
+
+          <h3>Prototyping</h3>
+
+          <p>I first used Balsamiq to create lo-fi prototypes of the scaling on different designs.</p>
+
+
+
+          <div class="container">
+            <figure class="figure">
+              <img src="desktop.png" class="figure-img img-fluid rounded" alt="Lofi desktop prototype">
+            </figure>
+            <div class="row">
+              <div class="col-sm">
+                <figure class="figure">
+                  <img src="ipad.png" class="figure-img img-fluid rounded" alt="Lofi tablet prototype">
+                </figure>
+              </div>
+              <div class="col-sm">
+                <figure class="figure">
+                  <img src="iphone.png" class="figure-img img-fluid rounded" alt="Lofi phone prototype">
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+
+          <p>Next, I used Figma to create higher quality prototypes to refine my design:</p>
+
+          <div class="container">
+            <figure class="figure">
+              <img src="hifi desktop.png" class="figure-img img-fluid rounded" alt="hifi desktop prototype">
+            </figure>
+            <div class="row">
+              <div class="col-sm">
+                <figure class="figure">
+                  <img src="hifi ipad.png" class="figure-img img-fluid rounded" alt="hifii tablet prototype">
+                </figure>
+              </div>
+              <div class="col-sm">
+                <figure class="figure">
+                  <img src="hifi iphone.png" class="figure-img img-fluid rounded" alt="hifi phone prototype">
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+          <h3>Technical and Accessibility Upgrades</h3>
+          <p>Since accessibility and use of modern technical standards were priorities
+          for me, I implemented the following features on my redesign: </p>
+
+          <ul>
+            <li>Lightweight page for better performance</li>
+            <li>HTML5 form validation, replacing images of asterisks</li>
+            <li>Modern input boxes with input format requirements</li>
+            <li>ARIA descriptions for form inputs with subtext</li>
+            <li>Fieldsets for screen readers</li>
+            <li>Language header</li>
+            <li>Page regions and headings</li>
+            <li>Higher-contrast design</li>
+          </ul>
+
+
+
+
+          <hr>
+
+          <h3>Redesign</h3>
+
+          <p>After these prototypes, I created a redesigned portal page. Check it out!</p>
+          <a href="redesign.html" class="btn btn-primary btn-xl">Click Here to View!</a>
+          <br>
+          <br>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+      </body>
+      </html>
